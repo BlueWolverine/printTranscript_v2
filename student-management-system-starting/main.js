@@ -21,7 +21,7 @@ function isCorrentStudentFormat(studentItemList) {
       return false;
     }
   }
-  let newAllStudentObject = JSON.parse(storage.allStudentObject);
+  let newAllStudentObject = JSON.parse(localStorage.allStudentObject);
   for (let i in newAllStudentObject.allStudent){
     if(studentItemList[1] === newAllStudentObject.allStudent[i].stuID){
       return false;
@@ -35,7 +35,7 @@ function isCorrentStuIDFormat(stuIDList) {
     return false;
   }
   let hasExit = false;
-  let newAllStudentObject = JSON.parse(storage.allStudentObject);
+  let newAllStudentObject = JSON.parse(localStorage.allStudentObject);
   for (let i in newAllStudentObject.allStudent){
     if(stuIDList[0] === newAllStudentObject.allStudent[i].stuID){
       hasExit = true;
@@ -85,7 +85,7 @@ function buildTheStudent(studentItemList) {
 }
 
 function getStuItemByID(stuID) {
-  let newAllStudentObject = JSON.parse(storage.allStudentObject);
+  let newAllStudentObject = JSON.parse(localStorage.allStudentObject);
   for (let i in newAllStudentObject.allStudent) {
     if (stuID === newAllStudentObject.allStudent[i].stuID){
       return newAllStudentObject.allStudent[i];
@@ -95,7 +95,7 @@ function getStuItemByID(stuID) {
 }
 
 function buildShowStudentList(stuIDList,showStudentList) {
-  let newAllStudentObject = JSON.parse(storage.allStudentObject);
+  let newAllStudentObject = JSON.parse(localStorage.allStudentObject);
   for (let i in stuIDList){
     for (let j in newAllStudentObject.allStudent){
       if(stuIDList[i] === newAllStudentObject.allStudent[j].stuID){
@@ -106,9 +106,9 @@ function buildShowStudentList(stuIDList,showStudentList) {
   }
 }
 
-function addStudentToLocalStorage(theStudent) {
+function addStudentToLocallocalStorage(theStudent) {
   allStudentObject.allStudent.push(theStudent);
-  storage.allStudentObject =  JSON.stringify(allStudentObject);
+  localStorage.allStudentObject =  JSON.stringify(allStudentObject);
 }
 
 
@@ -168,7 +168,7 @@ function addStudent(event) {
   let studentItemList = studentStr.split(',');
   if (isCorrentStudentFormat(studentItemList)){
     let theStudent = buildTheStudent(studentItemList);
-    addStudentToLocalStorage(theStudent);
+    addStudentToLocallocalStorage(theStudent);
     addStudentToForm(theStudent);
     alert('学生' + theStudent.name + '的成绩已添加成功');
     return false;
@@ -191,7 +191,7 @@ function checkStudents(event) {
   }
 }
 
-let storage = window.localStorage;
-storage.clear();
+let localStorage = window.locallocalStorage;
+localStorage.clear();
 let allStudentObject = {allStudent : []};
-storage.allStudentObject =  JSON.stringify(allStudentObject);
+localStorage.allStudentObject =  JSON.stringify(allStudentObject);

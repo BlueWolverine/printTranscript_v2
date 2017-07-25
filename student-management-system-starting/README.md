@@ -33,7 +33,7 @@
 - 以[form](http://www.w3school.com.cn/html/html_forms.asp)表单的形式接收用户提交的学生成绩
 - 使用Javascript监听表单[onSubmit](http://www.w3school.com.cn/jsref/event_onsubmit.asp)事件
 - 提交时进行输入校验，输入必须满足格式：`姓名, 学号, 民族, 班级, 学科: 成绩, …`，否则提示`请按正确的格式输入（格式：姓名, 学号, 学科: 成绩, ...）`
-- 提交格式正确则将学生成绩存入浏览器的[localStorage](http://www.w3school.com.cn/html5/html_5_webstorage.asp)
+- 提交格式正确则将学生成绩存入浏览器的[locallocalStorage](http://www.w3school.com.cn/html5/html_5_weblocalStorage.asp)
 
 ### 第三阶段
 
